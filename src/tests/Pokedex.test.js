@@ -98,7 +98,11 @@ describe('Tests for Pokedex Component', () => {
   test('Test if there is a Reset button', () => {
     renderWithRouter(<App />);
     const allBtn = screen.getByRole('button', { name: /all/i });
+    const fireFilterBtn = screen.getByRole('button', { name: /fire/i });
+
     expect(allBtn).toBeInTheDocument();
+
+    userEvent.click(fireFilterBtn);
 
     userEvent.click(allBtn);
     const showPikachu = screen.getByText(/pikachu/i);
