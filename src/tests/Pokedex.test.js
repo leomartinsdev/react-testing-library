@@ -2,10 +2,7 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
-// import { PokemonButtonsPanel } from '../components';
-// import Pokedex from '../pages/Pokedex';
 import renderWithRouter from '../renderWithRouter';
-// import pokemonList from '../data';
 
 describe('Tests for Pokedex Component', () => {
   test('Test H2 heading with Encountered Pokémon text', () => {
@@ -102,6 +99,7 @@ describe('Tests for Pokedex Component', () => {
 
     expect(allBtn).toBeInTheDocument();
 
+    // isso é necessário para primeiro filtrar e depois testar o botão do All. Se não tiver isso o stryker dá chilique
     userEvent.click(fireFilterBtn);
 
     userEvent.click(allBtn);
